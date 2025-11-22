@@ -264,10 +264,27 @@ function mostrarImagenesSubasta() {
 
 <section id="game" class="topics">
   <h2>Juego musical</h2>
-  <p>Presiona las teclas correctas cuando caiga la nota</p>
+  <p>Presiona las teclas correctas cuando la nota llegue a la línea de golpeo</p>
 
   <div id="game-area">
-    <div id="notes"></div>
+    <div class="game-stats">
+      <div class="stat-item">
+        <span class="stat-label">Puntaje:</span>
+        <span id="score" class="stat-value">0</span>
+      </div>
+      <div class="stat-item">
+        <span id="combo" class="combo-display"></span>
+      </div>
+      <div class="stat-item">
+        <span id="accuracy" class="stat-value">Precisión: 100%</span>
+      </div>
+    </div>
+    
+    <div id="game-status" class="game-status">Presiona "Iniciar Juego" para comenzar</div>
+    
+    <div id="notes">
+      <div class="hit-line"></div>
+    </div>
 
     <div class="keys">
       <div class="key" data-key="A">A</div>
@@ -277,8 +294,6 @@ function mostrarImagenesSubasta() {
     </div>
 
     <button id="startGame">Iniciar Juego</button>
-
-    <div class="score-box">Puntaje: <span id="score">0</span></div>
   </div>
 </section>
 
