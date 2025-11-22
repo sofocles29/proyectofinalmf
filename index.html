@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>MusikFacts🤓☝🏻❤️</title>
+
+<link rel="icon" type="image/png" href="musikfactslogo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+  <img src="musikfactslogo.png" alt="MusikFacts Logo">
+</div>
+  <nav>
+    <button data-scroll="hero">Inicio</button>
+    <button data-scroll="topics">Temas</button>
+    <button data-scroll="game">Juego</button>
+    <button data-scroll="multimedia">Multimedia</button>
+  </nav>
+</header>
+
+<section class="hero">
+  
+  <!-- VIDEO DE FONDO -->
+ <img src="wayneworld.gif" class="hero-gif">
+ 
+  <h1>Welcome... to the jungle😏</h1>
+
+  <div class="quote">“Sin música la vida sería un error” — Friedrich Nietzsche</div>
+
+  <div><strong>Tu dosis semanal de música en el correo👇🏻</strong></div>
+  <form class="signup" onsubmit="return false;">
+    <input type="email" placeholder="Tu correo electrónico">
+    <button>Registrarse</button>
+  </form>
+</section>
+
+<section id="topics" class="topics">
+  <h2>Datos verídicos</h2>
+  <p>Da click en el tema de tu interés.</p>
+  
+  <div class="logo-grid">
+    <div class="logo-card">
+      <img src="1Albumesvendidos/portadamasvendidos.png" alt="Álbumes más vendidos de todos los tiempos."
+      onclick="mostrarVideos()">
+    </div>
+  </div>
+
+  <div id="videoContainer" class="video-container" style="display:none;">
+    <video controls src="1Albumesvendidos/1michaelv.mp4"></video>
+    <video controls src="1Albumesvendidos/2acdcv.mp4"></video>
+    <video controls src="1Albumesvendidos/3whitneyv.mp4"></video>
+    <video controls src="1Albumesvendidos/4shaniav.mp4"></video>
+    <video controls src="1Albumesvendidos/5beegeesv.mp4"></video>
+    <video controls src="1Albumesvendidos/6michaeljv.mp4"></video>
+  </div>
+</section>
+
+<script>
+function mostrarVideos() {
+  const container = document.getElementById('videoContainer');
+  if (container.style.display === 'none') {
+    container.style.display = 'flex';
+  } else {
+    container.style.display = 'none';
+  }
+}
+</script>
+
+<section id="topics" class="topics">
+  <div class="logo-grid">
+    <div class="logo-card">
+      <img src="3SuperBowls/portadabowl.png" alt="Mejores Super Bowls Half Time Show de la historia."
+      onclick="mostrarImagenes()">
+    </div>
+  </div>
+
+  <div id="contenedorImagenes" class="video-container" style="display:none;">
+    <img src="3SuperBowls/2michaelbowl.png" alt="">
+    <img src="3SuperBowls/3princebowl.png" alt="">
+    <img src="3SuperBowls/4aerosmithbowl.png" alt="">
+    <img src="3SuperBowls/5gagabowl.png" alt="">
+    <img src="3SuperBowls/6beyoncebowl.png" alt="">
+    <img src="3SuperBowls/7dianabowl.png" alt="">
+    <img src="3SuperBowls/8madonnabowl.png" alt="">
+    <img src="3SuperBowls/9rollingbowl.png" alt="">
+    <img src="3SuperBowls/10katybowl.png" alt="">
+  </div>
+</section>
+
+<script>
+function mostrarImagenes() {
+  const container = document.getElementById('contenedorImagenes');
+  container.style.display = container.style.display === 'none' ? 'flex' : 'none';
+}
+</script>
+
+<!-- BOTÓN / PORTADA (asegúrate de que onclick coincide con la función abajo) -->
+<div class="logo-grid">
+  <div class="logo-card">
+    <img src="4Solosguitarra/portadaguitar.png"
+         alt="Los mejores solos de guitarra"
+         onclick="toggleSolos()">
+  </div>
+</div>
+
+<!-- CONTENEDOR DONDE SE CREARÁN LOS VIDEOS -->
+<div id="videoContainerSolos" class="video-container" style="display:none;"></div>
+
+<!-- Mensaje de error visible si hay problema -->
+<div id="videoSolosError" style="display:none; text-align:center; color:#b00; margin-top:10px;">
+  No se pudieron cargar los videos. Revisa consola o asegúrate de servir los archivos con Live Server.
+</div>
+
+<script>
+/**
+ * Lista de archivos locales (ajusta si cambias nombres).
+ * Manténlos en la carpeta 4Solosguitarra junto al HTML.
+ */
+const solosFiles = [
+  "4Solosguitarra/1slashg.mp4",
+  "4Solosguitarra/2briang.mp4",
+  "4Solosguitarra/3davidg.mp4",
+  "4Solosguitarra/4ritchieg.mp4",
+  "4Solosguitarra/5jimmyg.mp4",
+  "4Solosguitarra/6ledzeppeling.mp4",
+  "4Solosguitarra/7randyg.mp4",
+  "4Solosguitarra/8markg.mp4",
+  "4Solosguitarra/9donfelder.mp4",
+  "4Solosguitarra/10eddieg.mp4"
+];
+
+function toggleSolos() {
+  const container = document.getElementById('videoContainerSolos');
+  const errorBox = document.getElementById('videoSolosError');
+
+  // toggle display
+  const willShow = container.style.display === 'none' || container.style.display === '';
+  if (!willShow) {
+    // hide and clear
+    container.style.display = 'none';
+    container.innerHTML = '';
+    errorBox.style.display = 'none';
+    return;
+  }
+
+  // show: limpiar primero
+  container.innerHTML = '';
+  container.style.display = 'flex';
+  container.style.flexWrap = 'wrap';
+  container.style.justifyContent = 'center';
+  container.style.gap = '12px';
+  errorBox.style.display = 'none';
+
+  let loadError = false;
+  let pending = solosFiles.length;
+
+  solosFiles.forEach(src => {
+    const v = document.createElement('video');
+    v.controls = true;
+    v.width = 300;               // tamaño controlado para que no rompa diseño
+    v.style.borderRadius = '8px';
+    v.style.background = '#000';
+    v.src = src;
+    // handle success once metadata loads (means file found & readable)
+    const onLoaded = () => {
+      pending--;
+      cleanupListeners();
+      // if all processed and at least one loaded, hide error
+      if (pending === 0 && loadError === false) {
+        errorBox.style.display = 'none';
+      }
+    };
+    // handle errors (404, blocked by CORS, etc.)
+    const onError = (e) => {
+      console.error('Error loading video:', src, e);
+      loadError = true;
+      pending--;
+      cleanupListeners();
+      // show error message if all attempts finished and there was at least one error
+      if (pending === 0) {
+        document.getElementById('videoSolosError').textContent =
+          'Uno o más videos no pudieron cargarse. Revisa la consola o sirve los archivos con Live Server.';
+        document.getElementById('videoSolosError').style.display = 'block';
+      }
+    };
+    const cleanupListeners = () => {
+      v.removeEventListener('loadedmetadata', onLoaded);
+      v.removeEventListener('error', onError);
+    };
+    v.addEventListener('loadedmetadata', onLoaded);
+    v.addEventListener('error', onError);
+
+    // Append the video immediately (will show loading state)
+    container.appendChild(v);
+  });
+}
+</script>
+
+<section id="topics" class="topics">
+  <div class="logo-grid">
+    <div class="logo-card">
+      <img src="8Peliculasmusicales/portadapelis.png" alt="Biografías musicales."
+      onclick="mostrarImagenesPelis()">
+    </div>
+  </div>
+
+  <div id="contenedorPelis" class="video-container" style="display:none;">
+    <img src="8Peliculasmusicales/1rocketmanp.png" alt="">
+    <img src="8Peliculasmusicales/2borhapp.png" alt="">
+    <img src="8Peliculasmusicales/3beatlesp.png" alt="">
+    <img src="8Peliculasmusicales/4elvisp.png" alt="">
+    <img src="8Peliculasmusicales/5selenap.png" alt="">
+    <img src="8Peliculasmusicales/6thisisitp.png" alt="">
+    <img src="8Peliculasmusicales/7lastsdaysp.png" alt="">
+    <img src="8Peliculasmusicales/8marleyp.png" alt="">
+    <img src="8Peliculasmusicales/9missp.png" alt="">
+  </div>
+</section>
+
+<script>
+function mostrarImagenesPelis() {
+  const container = document.getElementById('contenedorPelis');
+  container.style.display = container.style.display === 'none' ? 'flex' : 'none';
+}
+</script>
+
+<section id="topics" class="topics">
+  <div class="logo-grid">
+    <div class="logo-card">
+      <img src="9Subastas/portadasubasta.png" alt="Subastas musicales."
+      onclick="mostrarImagenesSubasta()">
+    </div>
+  </div>
+
+  <div id="contenedorSubastas" class="video-container" style="display:none;">
+    <img src="9Subastas/1britneys.png" alt="">
+    <img src="9Subastas/2madonnas.png" alt="">
+    <img src="9Subastas/3johns.png" alt="">
+    <img src="9Subastas/4justins.png" alt="">
+    <img src="9Subastas/5freddies.png" alt="">
+    <img src="9Subastas/6elviss.png" alt="">
+    <img src="9Subastas/7gagas.png" alt="">
+    <img src="9Subastas/8kurts.png" alt="">
+    <img src="9Subastas/9amys.png" alt="">
+    <img src="9Subastas/10michaeljs.png" alt="">
+  </div>
+</section>
+
+<script>
+function mostrarImagenesSubasta() {
+  const container = document.getElementById('contenedorSubastas');
+  container.style.display = container.style.display === 'none' ? 'flex' : 'none';
+}
+</script>
+
+
+<section id="game" class="topics">
+  <h2>Juego musical</h2>
+  <p>Presiona las teclas correctas cuando caiga la nota</p>
+
+  <div id="game-area">
+    <div id="notes"></div>
+
+    <div class="keys">
+      <div class="key" data-key="A">A</div>
+      <div class="key" data-key="S">S</div>
+      <div class="key" data-key="D">D</div>
+      <div class="key" data-key="F">F</div>
+    </div>
+
+    <button id="startGame">Iniciar Juego</button>
+
+    <div class="score-box">Puntaje: <span id="score">0</span></div>
+  </div>
+</section>
+
+<section id="multimedia" class="topics">
+  <h2>Multimedia</h2>
+  <div class="video-box">Aquí irá tu video</div>
+
+  <h3>Documento multiformato🤠</h3>
+  <a href="documento_multiformato.pdf" download class="pdf-btn">Descargar PDF</a>
+</section>
+
+<footer>© 2025 Musik Facts by Sophie</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

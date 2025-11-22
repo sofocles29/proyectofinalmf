@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MusikFacts</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">MusikFacts</div>
+  <nav>
+    <button data-scroll="hero">Inicio</button>
+    <button data-scroll="topics">Temas</button>
+    <button data-scroll="game">Juego</button>
+    <button data-scroll="multimedia">Multimedia</button>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <h1>Bienvenido/a a mi página web</h1>
+  <p>¡HolaAaA! Aquí podrás encontrar datos curiosos sobre música que seguro no sabías.</p>
+  <p>Desde Musik Facts esperamos que tengas un buen momento y recuerdes que en todo hay una historia.</p>
+  <div class="quote">“Sin música la vida sería un error” — Friedrich Nietzsche</div>
+
+  <div><strong>Tu dosis semanal de música en tu correo</strong></div>
+  <form class="signup" onsubmit="return false;">
+    <input type="email" placeholder="Tu correo electrónico" required>
+    <button>Registrarse</button>
+  </form>
+</section>
+
+<section class="topics" id="topics">
+  <h2>Datos verídicos</h2>
+  <p>Da click en el tema de tu interés</p>
+  
+  <div class="logo-grid">
+    <div class="logo-card" data-folder="1Albumesvendidos"><img src="1Albumesvendidos/portadamasvendidos.png"></div>
+    <div class="logo-card" data-folder="3SuperBowls"><img src="3SuperBowls/portadabowl.png"></div>
+    <div class="logo-card" data-folder="4Solosguitarra"><img src="4Solosguitarra/portadaguitar.png"></div>
+    <div class="logo-card" data-folder="8Peliculasmusicales"><img src="8Peliculasmusicales/portadapelis.png"></div>
+    <div class="logo-card" data-folder="9Subastas"><img src="9Subastas/portadasubasta.png"></div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="panel">
+    <h3 id="modal-title"></h3>
+    <div class="slides" id="slides"></div>
+    <button onclick="closeModal()">Cerrar</button>
+  </div>
+</div>
+
+<section id="game" class="topics">
+  <h2>Juego musical</h2>
+  <p>Presiona las teclas correctas cuando caigan las notas</p>
+
+  <div id="game-area">
+    <div id="notes"></div>
+
+    <div class="keys">
+      <div class="key" data-key="A">A</div>
+      <div class="key" data-key="S">S</div>
+      <div class="key" data-key="D">D</div>
+      <div class="key" data-key="F">F</div>
+    </div>
+
+    <button id="startGame">Iniciar Juego</button>
+    <div>Puntaje: <span id="score">0</span></div>
+  </div>
+</section>
+
+
+<section class="topics" id="multimedia">
+  <h2>Multimedia</h2>
+  <p>Aquí estará el video cuando esté listo.</p>
+
+  <h3>Documento multiformato</h3>
+  <a href="documento_multiformato.pdf" download class="download-btn">
+    Descargar PDF
+  </a>
+</section>
+
+<footer>
+  © 2025 Musik Facts by Sophie
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

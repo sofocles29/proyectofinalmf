@@ -1,0 +1,70 @@
+═══════════════════════════════════════════════════════════════
+  CÓMO INICIAR EL SERVIDOR LOCAL PARA MUSIKFACTS
+═══════════════════════════════════════════════════════════════
+
+OPCIÓN 1: INSTALAR PYTHON (Recomendado)
+─────────────────────────────────────────
+1. Descarga Python desde: https://www.python.org/downloads/
+   O desde la Microsoft Store (busca "Python 3")
+
+2. Durante la instalación, marca la opción:
+   ✅ "Add Python to PATH"
+
+3. Abre una nueva terminal/PowerShell
+
+4. Navega a la carpeta MusikFacts:
+   cd "E:\Maestría\Introducción al Código\musikfactstrabajofinal\archivos\proyecto codigo\MusikFacts"
+
+5. Ejecuta:
+   python server.py
+
+6. Abre tu navegador en: http://localhost:8000/MusikFacts/
+
+
+OPCIÓN 2: USAR LIVE SERVER EN VS CODE
+───────────────────────────────────────
+1. Abre VS Code
+
+2. Instala la extensión "Live Server" (Ritwick Dey)
+
+3. Haz clic derecho en index.html
+
+4. Selecciona "Open with Live Server"
+
+5. El navegador se abrirá automáticamente
+
+
+OPCIÓN 3: USAR NODE.JS (si lo tienes instalado)
+─────────────────────────────────────────────────
+1. Instala Node.js desde: https://nodejs.org/
+
+2. Abre terminal en la carpeta del proyecto (no MusikFacts)
+
+3. Ejecuta:
+   npx http-server -p 8000
+
+4. Abre: http://localhost:8000/MusikFacts/
+
+
+OPCIÓN 4: USAR PHP (si lo tienes instalado)
+─────────────────────────────────────────────
+1. Abre terminal en la carpeta del proyecto (no MusikFacts)
+
+2. Ejecuta:
+   php -S localhost:8000
+
+3. Abre: http://localhost:8000/MusikFacts/
+
+
+═══════════════════════════════════════════════════════════════
+NOTA IMPORTANTE:
+═══════════════════════════════════════════════════════════════
+El servidor debe ejecutarse desde el directorio PADRE del 
+proyecto (donde están las carpetas 1Albumesvendidos, 
+3SuperBowls, etc.) para que las rutas funcionen correctamente.
+
+La URL correcta es siempre: http://localhost:8000/MusikFacts/
+
+═══════════════════════════════════════════════════════════════
+
+
