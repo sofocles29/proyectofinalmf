@@ -356,4 +356,20 @@ function closeModal() {
   slides.innerHTML = "";
 }
 
+// ========== NAVEGACIÓN CON SCROLL SUAVE ==========
+document.querySelectorAll('nav button[data-scroll]').forEach(button => {
+  button.addEventListener('click', function() {
+    const targetId = this.getAttribute('data-scroll');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      // Scroll suave a la sección
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
 
