@@ -357,19 +357,34 @@ function closeModal() {
 }
 
 // ========== NAVEGACIÓN CON SCROLL SUAVE ==========
-document.querySelectorAll('nav button[data-scroll]').forEach(button => {
-  button.addEventListener('click', function() {
-    const targetId = this.getAttribute('data-scroll');
-    const targetElement = document.getElementById(targetId);
-    
-    if (targetElement) {
-      // Scroll suave a la sección
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+function initNavigation() {
+  document.querySelectorAll('nav button[data-scroll]').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('data-scroll');
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // Obtener la posición del header para el offset
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = targetElement.offsetTop - headerHeight;
+        
+        // Scroll suave a la sección con offset para el header
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
   });
-});
+}
+
+// Inicializar navegación cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initNavigation);
+} else {
+  initNavigation();
+}
 
 

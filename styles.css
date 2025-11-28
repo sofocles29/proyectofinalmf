@@ -11,6 +11,10 @@ body {
   color: var(--text);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: linear-gradient(180deg, #fff5f7 0%, #d2e6e2 30%);
