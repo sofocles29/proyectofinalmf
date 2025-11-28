@@ -311,6 +311,12 @@ nav button {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border: 3px solid rgba(255, 255, 255, 0.3);
   position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
 }
 
 .key::before {

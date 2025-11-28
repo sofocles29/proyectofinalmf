@@ -278,7 +278,20 @@ document.addEventListener("keydown", e => {
   if (!playing) return;
   
   const key = e.key.toUpperCase();
+  handleKeyPress(key);
+});
+
+document.addEventListener("keyup", e => {
+  const key = e.key.toUpperCase();
   const pressed = document.querySelector(`.key[data-key="${key}"]`);
+  if (pressed) pressed.classList.remove("active");
+});
+
+// Función para manejar el toque/presión de tecla (compartida entre teclado y touch)
+function handleKeyPress(keyValue) {
+  if (!playing) return;
+  
+  const pressed = document.querySelector(`.key[data-key="${keyValue}"]`);
   if (!pressed) return;
   
   pressed.classList.add("active");
@@ -289,7 +302,7 @@ document.addEventListener("keydown", e => {
   
   const matchingNotes = notes.filter(n => 
     !n.hit && 
-    n.key === key && 
+    n.key === keyValue && 
     n.top >= hitZoneTop - hitZoneHeight && 
     n.top <= hitZoneTop + hitZoneHeight
   );
@@ -307,13 +320,37 @@ document.addEventListener("keydown", e => {
     const precision = distance < 15 ? "perfect" : "good";
     
     hitNote(closestNote, precision);
+  } else {
+    // No hay nota en la zona, pero se presionó la tecla (miss)
+    combo = 0;
+    updateUI();
   }
-});
+  
+  // Remover clase active después de un breve delay
+  setTimeout(() => {
+    pressed.classList.remove("active");
+  }, 150);
+}
 
-document.addEventListener("keyup", e => {
-  const key = e.key.toUpperCase();
-  const pressed = document.querySelector(`.key[data-key="${key}"]`);
-  if (pressed) pressed.classList.remove("active");
+// Eventos táctiles para móviles
+document.querySelectorAll(".key").forEach(keyElement => {
+  keyElement.addEventListener("touchstart", function(e) {
+    e.preventDefault(); // Prevenir scroll y otros comportamientos táctiles
+    const keyValue = this.dataset.key;
+    handleKeyPress(keyValue);
+  });
+  
+  keyElement.addEventListener("touchend", function(e) {
+    e.preventDefault();
+    this.classList.remove("active");
+  });
+  
+  // También agregar click para dispositivos que lo soporten
+  keyElement.addEventListener("click", function(e) {
+    e.preventDefault();
+    const keyValue = this.dataset.key;
+    handleKeyPress(keyValue);
+  });
 });
 
 function showConfetti() {
