@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --red: #e63946;
   --bg: #fff;
@@ -13,13 +17,18 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  padding: 0;
   background: linear-gradient(180deg, #fff5f7 0%, #d2e6e2 30%);
   font-family: 'Ubuntu Mono', monospace;
   color: var(--text);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* HEADER */
@@ -33,6 +42,8 @@ header {
   position:sticky;
   top:0;
   z-index:100;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -86,6 +97,8 @@ nav button {
 .topics {
   text-align:center;
   padding:40px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .logo-grid {
   display:flex;
@@ -411,6 +424,7 @@ nav button {
   width: 100%;
   max-width: 800px;
   aspect-ratio: 16 / 9;
+  margin: 0 auto;
 }
 
 #video-embed iframe {
@@ -474,6 +488,8 @@ footer {
   text-align: center;
   color: white;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-form {
@@ -494,6 +510,7 @@ footer {
   object-fit: cover;
   z-index: -1;
   filter: brightness(0.45);
+  max-width: 100%;
 }
 
 /* TEXTO ENCIMA DEL GIF */
@@ -583,105 +600,253 @@ h1, h2, h3, h4 {
 }
 
 /* --- RESPONSIVE GENERAL --- */
-@media (max-width: 600px) {
-
+@media (max-width: 768px) {
+  /* HEADER */
   header {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     text-align: center;
+    padding: 12px 15px;
+  }
+
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .logo img {
-    height: 50px;
-    max-width: 200px;
+    height: 45px;
+    max-width: 180px;
   }
 
   nav {
-    gap: 8px;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
   }
 
   nav button {
-    padding: 6px 10px;
-    font-size: 0.9rem;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    flex: 0 0 auto;
   }
 
   /* HERO */
   .hero {
-    padding: 70px 15px;
+    padding: 50px 15px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem !important;
+    padding: 0 10px;
+  }
+
+  .signup {
+    width: 100%;
+    padding: 0 10px;
   }
 
   .signup input {
-    width: 90% !important;
+    width: 100% !important;
+    max-width: 300px;
+    box-sizing: border-box;
   }
 
-  /* PORTADAS (se ajustan al ancho del cel) */
+  .signup button {
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  /* TOPICS */
+  .topics {
+    padding: 30px 15px;
+  }
+
+  h1, h2, h3, h4 {
+    font-size: 1.5rem !important;
+    padding: 0 10px;
+  }
+
+  .section-description {
+    font-size: 0.9rem;
+    padding: 0 15px;
+    margin-bottom: 20px;
+  }
+
+  /* PORTADAS */
   .logo-card {
-    width: 130px !important;
-    height: 130px !important;
+    width: 140px !important;
+    height: 140px !important;
   }
 
   #video-thumbnail {
-    width: 130px !important;
-    height: 130px !important;
+    width: 140px !important;
+    height: 140px !important;
   }
 
   .logo-grid {
     gap: 20px !important;
+    padding: 0 10px;
   }
 
   /* VIDEOS / IMÁGENES */
+  .video-container {
+    padding: 0 10px;
+  }
+
   .video-container img,
   .video-container video {
-    width: 90% !important;
-    max-width: 260px;
+    width: 100% !important;
+    max-width: 280px;
+    box-sizing: border-box;
+  }
+
+  /* VIDEO BOX */
+  .video-box {
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #video-embed {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
   /* JUEGO */
   #game-area {
-    width: 95%;
-    padding: 15px;
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
   }
 
   .game-stats {
     flex-direction: column;
-    gap: 8px;
-    padding: 10px;
+    gap: 10px;
+    padding: 12px;
   }
 
   .stat-item {
     flex-direction: row;
     gap: 8px;
+    width: 100%;
+    justify-content: center;
   }
 
   .stat-value, .combo-display {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   #notes {
-    height: 220px;
+    height: 200px;
   }
 
   .hit-line {
-    top: 180px;
+    top: 160px;
   }
 
   .keys {
-    gap: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .key {
-    width: 60px;
-    height: 60px;
-    font-size: 1.1rem;
+    width: 65px;
+    height: 65px;
+    font-size: 1rem;
   }
 
   .note {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   .feedback {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  #startGame {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* PDF BUTTON */
+  .pdf-btn {
+    width: auto;
+    max-width: 90%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px 10px;
+  }
+
+  nav button {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .logo img {
+    height: 40px;
+    max-width: 150px;
+  }
+
+  .hero {
+    padding: 40px 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.3rem !important;
+  }
+
+  .topics {
+    padding: 25px 10px;
+  }
+
+  h1, h2, h3, h4 {
+    font-size: 1.3rem !important;
+  }
+
+  .section-description {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+
+  .logo-card {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  #video-thumbnail {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .logo-grid {
+    gap: 15px !important;
+  }
+
+  .key {
+    width: 55px;
+    height: 55px;
+    font-size: 0.9rem;
+  }
+
+  #notes {
+    height: 180px;
+  }
+
+  .hit-line {
+    top: 140px;
   }
 }
 
@@ -692,13 +857,30 @@ h1, h2, h3, h4 {
   max-width: 90%;
   line-height: 1.2;
   text-align: center;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
-/* Ajustes responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .quote {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 1.15;
     margin-top: 14px;
+    padding: 0 20px;
   }
+}
+
+@media (max-width: 480px) {
+  .quote {
+    font-size: 1.3rem;
+    padding: 0 15px;
+  }
+}
+
+/* Asegurar que todas las secciones no tengan overflow */
+section {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
