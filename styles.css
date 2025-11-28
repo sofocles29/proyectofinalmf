@@ -26,11 +26,18 @@ body {
 header {
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:14px 30px;
   background:white;
   border-bottom:1px solid #ddd;
   position:sticky;
   top:0;
+  z-index:100;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
 }
 nav button {
   margin-left: 8px;
@@ -478,10 +485,11 @@ h1, h2, h3, h4 {
 
 /* Estilos del logo con imagen */
 .logo img {
-  height: 45px;
+  height: 50px;
   width: auto;
   object-fit: contain;
-  max-width: 200px;
+  max-width: 180px;
+  display: block;
 }
 
 /* --- RESPONSIVE GENERAL --- */
@@ -491,6 +499,11 @@ h1, h2, h3, h4 {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+
+  .logo img {
+    height: 40px;
+    max-width: 150px;
   }
 
   nav button {
