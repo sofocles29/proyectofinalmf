@@ -115,10 +115,11 @@ nav button {
   width: 500px;
   max-width: 90%;
   padding: 25px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   position: relative;
+  border: 2px solid var(--red);
 }
 
 .game-stats {

@@ -5,6 +5,7 @@ const comboEl = document.getElementById("combo");
 const accuracyEl = document.getElementById("accuracy");
 const startBtn = document.getElementById("startGame");
 const gameStatusEl = document.getElementById("game-status");
+const gameMusic = document.getElementById("game-music");
 
 let score = 0;
 let combo = 0;
@@ -59,6 +60,12 @@ function startGame() {
   startBtn.disabled = true;
   gameStatusEl.textContent = "¡Juega!";
   gameStatusEl.className = "game-status playing";
+  
+  // Iniciar música
+  if (gameMusic) {
+    gameMusic.currentTime = 0;
+    gameMusic.play().catch(e => console.log("Error al reproducir música:", e));
+  }
   
   // Iniciar spawn de notas
   spawnNote();
@@ -236,6 +243,12 @@ function updateUI() {
 function endGame() {
   playing = false;
   clearInterval(spawnInterval);
+  
+  // Detener música
+  if (gameMusic) {
+    gameMusic.pause();
+    gameMusic.currentTime = 0;
+  }
   
   // Remover todas las notas
   notes.forEach(note => {
