@@ -259,6 +259,13 @@ function mostrarImagenesSubasta() {
   const container = document.getElementById('contenedorSubastas');
   container.style.display = container.style.display === 'none' ? 'flex' : 'none';
 }
+
+function mostrarVideo() {
+  const thumbnail = document.getElementById('video-thumbnail');
+  const videoEmbed = document.getElementById('video-embed');
+  thumbnail.style.display = 'none';
+  videoEmbed.style.display = 'block';
+}
 </script>
 
 
@@ -299,7 +306,15 @@ function mostrarImagenesSubasta() {
 
 <section id="multimedia" class="topics">
   <h2>Multimedia</h2>
-  <div class="video-box">Aquí irá tu video</div>
+  <div class="video-box">
+    <div id="video-thumbnail" onclick="mostrarVideo()" style="cursor: pointer;">
+      <img src="portadaonehits.png" alt="One Hits - Ver video" id="portada-video">
+      <div class="play-button">▶</div>
+    </div>
+    <div id="video-embed" style="display: none;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/qwXirJiYwFI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
 
   <h3>Documento multiformato🤠</h3>
   <a href="documento_multiformato.png" download class="pdf-btn">Descargar</a>
